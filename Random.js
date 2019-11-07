@@ -1,21 +1,22 @@
-function selector(){
+ function selector(){
 
-var participants = ['a','b']
+var participants = ['a','b','c','d','e','f','g','h','i','j']
 
 var odds = participants.map(function(x){
 
   return [x,0]
 
 })
-for(i=0;i<1000;i++){
+var tests = 1000000
+for(i=0;i<tests;i++){
 var selection = getRand(participants)
 
 var index = participants.indexOf(selection)
 odds[index][1] ++
 
 }
-  
-  Console.log(odds)
+  console.log(odds)
+  console.log(odds[0][1]/tests)
   
 }
 
@@ -53,5 +54,4 @@ var index = sum % keys.length
 var selection = keys[index]
 
 return selection
-
 }
