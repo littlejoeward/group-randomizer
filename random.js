@@ -1,6 +1,12 @@
 
 function createTable(tableData) {
+    try{var old = document.getElementById('table')
+        old.parentNode.removeChild(old)
+       }
+    catch{}
+    finally{
   var table = document.createElement('table');
+        table.setAttribute('id', 'table');
   var tableBody = document.createElement('tbody');
   tableData.forEach(function(rowData) {
     var row = document.createElement('tr');
@@ -15,17 +21,23 @@ function createTable(tableData) {
   document.body.appendChild(table);
             
 }
+}
+function selector(tests,choices){
 
-function selector(){
+var participants = []
 
-var participants = ['a','b','c','d','e','f','g','h','i','j']
+for(j=0;j<choices;){
+
+    participants.push('Person ' + ++j)
+
+}
 
 var odds = participants.map(function(x){
 
   return [x,0]
 
 })
-var tests = 1000000
+
 for(i=0;i<tests;i++){
 var selection = getRand(participants)
 
@@ -33,9 +45,12 @@ var index = participants.indexOf(selection)
 odds[index][1] ++
 
 }
-  console.log(odds)
-  console.log(odds[0][1]/tests)
-  createTable(odds)
+var percentage = odds.map(function(x){
+
+    return x.concat(Math.round(x[1]/tests*10000)/100 + "%")
+
+})
+  createTable(percentage)
   return odds
 }
 
