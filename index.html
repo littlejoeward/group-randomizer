@@ -1,11 +1,14 @@
 <!doctype html>
 <html>
 <body>
-<script type="text/javascript" src="random.js"></script>
-   <script>
-      var result =   selector()
-      console.log(result)
-   </script>
+<script type="text/javascript" src="random.js"></script>  
+        <p>"How many people?"</p>
+<input type="text" name="name" id="people" value="10">
+    <p>"How many rounds?"</p>
+<input type="text" name="name" id="rounds" value="100000">
+                                                    
+    <button onclick="selector(document.getElementById('rounds').value,document.getElementById('people').value)">Submit</button>
+ 
     <style>
     table {
   font-family: arial, sans-serif;
