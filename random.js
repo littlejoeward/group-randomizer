@@ -17,7 +17,7 @@ odds[index][1] ++
 }
   console.log(odds)
   console.log(odds[0][1]/tests)
-  return odds
+  return "Test"
 }
 
 
