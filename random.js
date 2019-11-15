@@ -1,29 +1,25 @@
+//// This is the actual algorithm, all the other functions are for the two example html pages 
+function getSelection(participants){
 
-function createTable(tableData) {
-    try{var old = document.getElementById('table')
-        old.parentNode.removeChild(old)
-       }
-    catch{}
-    finally{
-  var table = document.createElement('table');
-        table.setAttribute('id', 'table');
-  var tableBody = document.createElement('tbody');
-  tableData.forEach(function(rowData) {
-    var row = document.createElement('tr');
-    rowData.forEach(function(cellData) {
-      var cell = document.createElement('td');
-      cell.appendChild(document.createTextNode(cellData));
-      row.appendChild(cell);
-    });
-    tableBody.appendChild(row);
-  });
-  table.appendChild(tableBody);
-  document.body.appendChild(table);
-            
-}
+
+var keys = Object.keys(participants)
+
+var sum = keys.reduce(function(acc,x){
+
+return participants[x] + acc
+
+},0)
+
+var index = sum % keys.length -1
+
+var selection = keys[index] ? keys[index]:keys[keys.length-1]
+
+return [selection,sum,index]
 }
 
 
+
+//// This function runs the test multiple times for testing the randomnes of the algorith
 
 
 function selector(tests,choices){
@@ -59,7 +55,7 @@ var percentage = odds.map(function(x){
 }
 
 
-
+// this is a helper function to the above it basically gives each participant a random number and formats the data as an object to send to the getSelection() function
 
 function getRand(participants) {
   
@@ -76,25 +72,7 @@ var selection = getSelection(random)[0]
 return selection
 }
 
-function getSelection(participants){
-
-
-var keys = Object.keys(participants)
-
-var sum = keys.reduce(function(acc,x){
-
-return participants[x] + acc
-
-},0)
-
-var index = sum % keys.length -1
-
-var selection = keys[index] ? keys[index]:keys[keys.length-1]
-
-return [selection,sum,index]
-}
-
-
+/// This function generates random numbers for the example page
 
 function random(){
 for(i=1;i<4;i++){
@@ -103,6 +81,8 @@ document.getElementById('person ' + i).value = Math.random()
 
 }
 
+
+// This function gets the data from the example page and returns the selected participant
 
     function getInput(){
      
@@ -124,3 +104,31 @@ document.getElementById('person ' + i).value = Math.random()
    document.getElementById('selection').innerHTML = selection[0]
    
    }
+
+
+//// This function creates the table to show the percentage that each participant gets picked on the test page
+
+
+function createTable(tableData) {
+    try{var old = document.getElementById('table')
+        old.parentNode.removeChild(old)
+       }
+    catch{}
+    finally{
+  var table = document.createElement('table');
+        table.setAttribute('id', 'table');
+  var tableBody = document.createElement('tbody');
+  tableData.forEach(function(rowData) {
+    var row = document.createElement('tr');
+    rowData.forEach(function(cellData) {
+      var cell = document.createElement('td');
+      cell.appendChild(document.createTextNode(cellData));
+      row.appendChild(cell);
+    });
+    tableBody.appendChild(row);
+  });
+  table.appendChild(tableBody);
+  document.body.appendChild(table);
+            
+}
+}
