@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<body>
+<script type="text/javascript" src="random.js"></script>  
+    
+    
+    
+    <p> Each Participant (in this example there are three) picks a number between 0 and 1. <br>
+        The numbers are multiplied by the number of participants and rounded to a whole number (The number will be between 1 and the number of participants) <br>
+        You then take the sum of the numbers and get the remainder after dividing by the number of participants. <br>
+        The remainder is the participant that is selected. (remainder 0 is the last participant) <br>
+        <br>
+     <button onclick="random()">Generate Random Numbers</button>     
+    
+    <p>Person 1</p>
+<input type="text" name="name" id="person 1" value="">
+    
+    <p>Person 2</p>
+<input type="text" name="name" id="person 2" value="">
+    <p>Person 3</p>
+<input type="text" name="name" id="person 3" value="">
+<br>
+    <br>
+    <button onclick="getInput()">Get Selection</button>      
+    
+    <p id="data"></p>
+    
+    
+    
+    
+    <p id="selection"></p>
+    
+ 
+    
+    
+    
+</body>
+</html>
