@@ -22,6 +22,10 @@ function createTable(tableData) {
             
 }
 }
+
+
+
+
 function selector(tests,choices){
 
 var participants = []
@@ -51,7 +55,7 @@ var percentage = odds.map(function(x){
 
 })
   createTable(percentage)
-  return odds
+  return percentage
 }
 
 
@@ -64,11 +68,11 @@ function getRand(participants) {
   var length = participants.length
   participants.forEach(function(x){
   
-  random[x] = Math.ceil(Math.random()*length)
+  random[x] = Math.floor(Math.random()*length) +1
     
   })
   
-var selection = getSelection(random)
+var selection = getSelection(random)[0]
 return selection
 }
 
@@ -83,9 +87,40 @@ return participants[x] + acc
 
 },0)
 
-var index = sum % keys.length
+var index = sum % keys.length -1
 
-var selection = keys[index]
+var selection = keys[index] ? keys[index]:keys[keys.length-1]
 
-return selection
+return [selection,sum,index]
 }
+
+
+
+function random(){
+for(i=1;i<4;i++){
+document.getElementById('person ' + i).value = Math.random()
+}
+
+}
+
+
+    function getInput(){
+     
+        var participants = {}
+   var data = ""      
+        for (i=1;i<=3;i++){
+        var number = Math.floor(document.getElementById("person " + i).value*3) +1
+        participants["Person " + i] = number
+         data += "Person " + i + ": " + number + "<br>"
+        }
+       
+   var selection = getSelection(participants)
+  
+   data += "Sum: " + selection[1] + "<br>" +
+           "Remainder: " + (+selection[2] + 1)+ "<br>"
+   
+   document.getElementById('data').innerHTML = data
+   
+   document.getElementById('selection').innerHTML = selection[0]
+   
+   }
