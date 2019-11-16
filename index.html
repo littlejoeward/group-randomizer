@@ -1,8 +1,18 @@
 <!doctype html>
 <html>
 <body>
-
+    
+    This algorith is designed to select a random participant from a group by having each participant select a random number. <br>
+    This allows for a decentralized and tamper proof way to select a random participant. <br>
+    Following is a brief explanation: <br>
+Each Participant picks a number between 0 and 1. <br>
+        The numbers are multiplied by the number of participants and rounded to a whole number (The number will be between 1 and the number of participants) <br>
+        You then take the sum of the numbers and get the remainder after dividing by the number of participants. <br>
+        The remainder is the participant that is selected. (remainder 0 is the last participant)
+    <br>
+    <br>
     To see an example of a single round <a href = "example.html">click here.</a>
+    <br>
     <br>
     To run a test to see if the algorithm is truly random <a href = "test.html">click here.</a>
 
