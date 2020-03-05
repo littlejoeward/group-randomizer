@@ -1,6 +1,6 @@
 # group-randomizer
 
-This algorith is designed to select a random participant from a group by having each participant select a random number. <br>
+This algorithm is designed to select a random participant from a group by having each participant select a random number. <br>
     This allows for a decentralized and tamper proof way to select a random participant. <br>
     Following is a brief explanation: <br>
     <br>
