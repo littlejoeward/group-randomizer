@@ -61,7 +61,7 @@ function getRand(participants) {
   
   
   var random = {}
-  var length = participants.length
+  var length = 2//participants.length
   participants.forEach(function(x){
   
   random[x] = Math.floor(Math.random()*length) +1
