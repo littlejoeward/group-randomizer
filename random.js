@@ -64,7 +64,7 @@ function getRand(participants) {
   var length = 2//participants.length
   participants.forEach(function(x){
   
-  random[x] = Math.floor(Math.random()*length) +1
+  random[x] = Math.floor(Math.random()*length) + 1
     
   })
   
@@ -89,7 +89,7 @@ document.getElementById('person ' + i).value = Math.random()
         var participants = {}
    var data = ""      
         for (i=1;i<=3;i++){
-        var number = Math.floor(document.getElementById("person " + i).value*3) +1
+        var number = Math.floor(document.getElementById("person " + i).value*2) +1
         participants["Person " + i] = number
          data += "Person " + i + ": " + number + "<br>"
         }
